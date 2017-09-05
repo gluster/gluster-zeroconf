@@ -1,0 +1,3 @@
+include README.rst
+include COPYING COPYING.LESSER
+include gluster-zeroconf.spec
