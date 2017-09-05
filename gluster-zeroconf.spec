@@ -90,7 +90,7 @@ discoverable.
 
 %files -n python2-%{name}
 %license COPYING COPYING.LESSER
-%doc README.rst
+%doc README.md
 %{python2_sitelib}/*
 %if ! 0%{?with_python3}
 %{_bindir}/gluster-discovery
