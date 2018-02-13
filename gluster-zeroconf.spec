@@ -3,12 +3,12 @@
 
 Name:		gluster-zeroconf
 Version:	0.1.0
-Release:	1%{?dist}
+Release:	2%{?dist}
 %global sum	Automatic discovery for Gluster Storage servers
 Summary:	%{sum}
 
 License:	LGPLv3
-URL:		https://github.com/nixpanic/gluster-zeroconf
+URL:		https://github.com/gluster/gluster-zeroconf
 Source0:	gluster-zeroconf-%{version}.tar.gz
 
 BuildArch:	noarch
@@ -112,5 +112,9 @@ discoverable.
 
 
 %changelog
+
+* Mon Feb 05 2018 Ramakrishna Reddy Yekulla <rreddy@redhat.com> - 0.1.0-2
+- Spec file URL change
+
 * Fri Aug 25 2017 Niels de Vos <ndevos@redhat.com> - 0.1.0-1
 - Initial packaging
