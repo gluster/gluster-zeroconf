@@ -64,7 +64,12 @@ def connected_peers():
     if not (result['cliOutput'] and result['cliOutput']['peerStatus']):
         return peers
 
-    for peer in result['cliOutput']['peerStatus']['peer']:
+    if isinstance(result['cliOutput']['peerStatus']['peer'], (list,)):
+        xmlPeers = result['cliOutput']['peerStatus']['peer']
+    else:
+        xmlPeers = result['cliOutput']['peerStatus'].values()
+
+    for peer in xmlPeers:
         hostname = peer['hostname']
         if hostname != 'localhost':
             peers.append(hostname)
