@@ -2,8 +2,8 @@
 #%%global with_python3 1
 
 Name:		gluster-zeroconf
-Version:	0.1.0
-Release:	2%{?dist}
+Version:	0.1.3
+Release:	1%{?dist}
 %global sum	Automatic discovery for Gluster Storage servers
 Summary:	%{sum}
 
