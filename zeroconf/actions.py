@@ -1,5 +1,6 @@
 from time import sleep
 import socket
+import shlex
 from zeroconf import ServiceBrowser, ServiceStateChange, Zeroconf
 from subprocess import Popen, PIPE
 import xmltodict
@@ -38,8 +39,7 @@ def connected_peers():
     """ List connected peers as given by GlusterD.
     """
     peers = []
-
-    cli = Popen('gluster --xml pool list', shell=True, stdout=PIPE, stderr=PIPE)
+    cli = Popen(['gluster','--xml','pool','list'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False) 
     (out, err) = cli.communicate()
     # TODO: catch errors (not even xml format when glusterd is not running)
 
@@ -80,7 +80,7 @@ def connected_peers():
 def peer_probe(hostname):
     """ Run 'gluster peer probe $hostname' against the given hostname (or IP).
     """
-    cli = Popen('gluster --xml peer probe %s' % hostname, shell=True, stdout=PIPE, stderr=PIPE)
+    cli = subprocess.Popen(shlex.split('gluster --xml peer probe'), stdout=open(hostname, 'ab'), stderr=subprocess.PIPE) 
     (out, err) = cli.communicate()
 
     # TODO: catch errors
