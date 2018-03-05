@@ -1,6 +1,7 @@
 from time import sleep
 import socket
 import shlex
+import subprocess
 from zeroconf import ServiceBrowser, ServiceStateChange, Zeroconf
 from subprocess import Popen, PIPE
 import xmltodict
